@@ -25,3 +25,5 @@ https://www.kdnuggets.com/datasets/index.html
 https://blog.bigml.com/list-of-public-data-sources-fit-for-machine-learning/
 
 https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html
+
+IMPORTANT : http://scikit-learn.org/stable/datasets/index.html
