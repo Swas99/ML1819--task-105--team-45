@@ -1,0 +1,27 @@
+DataSetList
+
+
+Linear Regression Data 
+
+https://www.kaggle.com/sohier/calcofi
+
+https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Prognostic%29
+
+
+Clustering Data
+
+http://people.sc.fsu.edu/~jburkardt/datasets/hartigan/hartigan.html
+
+
+
+Additional Repos and archives
+
+https://archive.ics.uci.edu/ml/datasets.html?format=&task=reg&att=&area=&numAtt=&numIns=&type=&sort=nameUp&view=table
+
+https://www.kaggle.com/datasets
+
+https://www.kdnuggets.com/datasets/index.html
+
+https://blog.bigml.com/list-of-public-data-sources-fit-for-machine-learning/
+
+https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html
