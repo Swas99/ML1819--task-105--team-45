@@ -1,8 +1,8 @@
-->> 25% of the class value were changed randomly
+->> 30% of the class value were changed randomly
 ->> Rows were selected randomly
 ->> Value was changed to a randomly picked value between [0,9]
 
-Expected noisy rows = 25%
+Expected noisy rows = 30%
 Final results:
 Number of rows: 1797
-Noisy rows    : 389
+Noisy rows    : 498

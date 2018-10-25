@@ -5,4 +5,4 @@
 Expected noisy rows = 5%
 Final results:
 Number of rows: 1797
-Noisy rows    : 87
+Noisy rows    : 82

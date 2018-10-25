@@ -74,12 +74,12 @@ int main(void)
 	string ds_images = 
 	"C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/logistic_regression/ds_1/" + input1;
 	string ns_ds1 = 
-	"C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/logistic_regression/ds_1/ns_ds1_7/";
+	"C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/logistic_regression/ds_1/ns_ds1_4/";
 	string desc_file = ns_ds1 + "description.txt";
  
 	string str = "";
 	int lineNumber = 0;
-	float NOISE_PERCENT = 0.50f;
+	float NOISE_PERCENT = 0.30f;
 	vector<dataPoint> noisyDataSets =  vector<dataPoint>();
 	vector<dataPoint> originalDataSet =  vector<dataPoint>(); 
 
@@ -145,8 +145,8 @@ int main(void)
 	string outputClass = ""; 
 	for(int i =0; i<lineNumber; i++)
 	{
-		featureSet += originalDataSet[i].x1 + "\n";
-		outputClass += originalDataSet[i].y + "\n";
+		featureSet += to_string(originalDataSet[i].x1) + "\n";
+		outputClass += to_string(originalDataSet[i].y) + "\n";
 	}
 
    	std::ofstream out(ns_ds1 + input1);
