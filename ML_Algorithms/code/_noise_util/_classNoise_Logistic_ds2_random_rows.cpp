@@ -74,12 +74,12 @@ int main(void)
 	string ds_images = 
 	"C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/logistic_regression/ds_2/" + input1;
 	string ns_ds1 = 
-	"C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/logistic_regression/ds_2/ns_ds2_15/";
+	"C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/logistic_regression/ds_2/ns_ds2_20/";
 	string desc_file = ns_ds1 + "description.txt";
  
 	string str = "";
 	int lineNumber = 0;
-	float NOISE_PERCENT = 0.3f;
+	float NOISE_PERCENT = 0.20f;
 	vector<dataPoint> noisyDataSets =  vector<dataPoint>();
 	vector<dataPoint> originalDataSet =  vector<dataPoint>(); 
 
@@ -126,9 +126,7 @@ int main(void)
         if(dist9(rng) == 0)
             random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
     }
-    sort(originalDataSet.begin(), originalDataSet.end(), mySorter()); 
 	random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
-    sort(originalDataSet.begin(), originalDataSet.end(), mySorter()); 
 
 	int finalNoiseCount =0;
 	int SUBSET_SIZE = lineNumber * NOISE_PERCENT;
@@ -136,10 +134,10 @@ int main(void)
 	{
 		// int x = dist9(rng);
 		if(originalDataSet[i].y == 'M')
-		{
-            finalNoiseCount++;
-            originalDataSet[i].y = 'B';           
-        }	
+            originalDataSet[i].y = 'B';
+        else
+            originalDataSet[i].y = 'M';       
+        finalNoiseCount++;
 	}
     random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
 	string data = ""; 
@@ -159,7 +157,7 @@ int main(void)
 
 
 	string desc = "->> " + to_string((int)(NOISE_PERCENT * 100)) + "% of the class value were changed randomly\n";
-    desc += "->> " + to_string((int)(NOISE_PERCENT * 100)) + " %  of " + " 'M' -> 'B'\n";
+    desc += "->> " + to_string((int)(NOISE_PERCENT * 100)) + " %  of " + " values flipped\n";
     desc += "Final results:\nNumber of rows: " + to_string(lineNumber) + "\nNoisy rows    : " + to_string(finalNoiseCount);
 
    	std::ofstream out3(desc_file);
