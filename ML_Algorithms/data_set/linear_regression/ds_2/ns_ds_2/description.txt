@@ -1,0 +1,5 @@
+->> 5% of noise added randomly
+->> 30 %  of  data have noise now
+Final results:
+Number of rows: 306
+Noisy rows    : 91
