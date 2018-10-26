@@ -80,8 +80,9 @@ int main(void)
  
 	string str = "";
 	int lineNumber = 0;
-    float NOISE_SIZE = 0.3f;
-    int NOISE_PERCENT = 5;
+    float NOISE_SIZE = 0.9f;
+    int MIN_NOISE_PERCENT = 80;
+    int NOISE_PERCENT = 70;
 	vector<dataPoint> noisyDataSets =  vector<dataPoint>();
 	vector<dataPoint> originalDataSet =  vector<dataPoint>(); 
 
@@ -118,7 +119,7 @@ int main(void)
 	//random seed
     std::mt19937 rng;
     rng.seed(std::random_device()());
-    std::uniform_int_distribution<std::mt19937::result_type> dist9(0,NOISE_PERCENT); // distribution in range [0, 9]
+    std::uniform_int_distribution<std::mt19937::result_type> dist9(MIN_NOISE_PERCENT,NOISE_PERCENT); // distribution in range [0, 9]
 
     //shuffle the array 
     random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
@@ -180,8 +181,8 @@ int main(void)
     out << data;
 	out.close();
 
-
-	string desc = "->> " + to_string((int)(NOISE_PERCENT)) + "% of noise added randomly\n";
+    cout<<NOISE_PERCENT<<endl;
+	string desc = "->> [" + to_string((int)(MIN_NOISE_PERCENT)) + "," + to_string((int)(NOISE_PERCENT)) + "] % of noise added randomly\n";
     desc += "->> " + to_string((int)(NOISE_SIZE * 100)) + " %  of " + " data have noise now\n";
     desc += "Final results:\nNumber of rows: " + to_string(lineNumber) + "\nNoisy rows    : " + to_string(finalNoiseCount);
 
