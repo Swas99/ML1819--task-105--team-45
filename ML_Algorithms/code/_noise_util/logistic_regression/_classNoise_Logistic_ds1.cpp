@@ -8,7 +8,8 @@
 #include <iostream>
 #include <algorithm>
 #include <random>     
-#include <cmath>  
+#include <cmath>
+
 using namespace std;
 
 template<typename Out> 
@@ -60,15 +61,15 @@ struct mySorter
 
 struct dataPoint
 {
-    int x1;
+    string x1;
     int y;
 };
+
+int indexArray[9999];
 
 /* Driver program to test above function */
 int main(void) 
 { 
-
-
     int noiseSeed[] = {0, 10, 20, 30, 40};
     for(int ii = 0; ii<25; ii++)
     {
@@ -76,9 +77,9 @@ int main(void)
         string input1 = "digit_images.txt";
         string input2 = "digit_classes.txt";
         string ds_clases = 
-        "C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/logistic_regression/ds_1/" + input2;
+        "C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/logistic_regression/ds_1/_trainSet/" + input2;
         string ds_images = 
-        "C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/logistic_regression/ds_1/" + input1;
+        "C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/logistic_regression/ds_1/_trainSet/" + input1;
         string ns_ds1 = 
         "C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/logistic_regression/ds_1/ns_ds1_"
         + to_string(ii+1) + "/";
@@ -100,7 +101,7 @@ int main(void)
 
         	replaceAll( str, "\n", "");
         	replaceAll( str, "\t", "");
-        	dataPoint objData = {  stoi(str),  // x1  
+        	dataPoint objData = {  str,  // x1  
         		 					0  // y
         		 				};
         	originalDataSet.push_back(objData);
@@ -109,7 +110,7 @@ int main(void)
 
         fPath = ds_clases;
         fstream file2(fPath);
-        lineNumber = 0;
+        int lineNumberClasses = 0;
         while(std::getline(file2, str))
         {
         	if(str.length() == 0)
@@ -117,9 +118,11 @@ int main(void)
 
         	replaceAll( str, "\n", "");
         	replaceAll( str, "\t", "");
-        	originalDataSet[lineNumber].y = stoi(str);
-        	lineNumber++;
+        	originalDataSet[lineNumberClasses].y = stoi(str);
+        	indexArray[lineNumberClasses] = lineNumberClasses;
+        	lineNumberClasses++;
         }
+
         // sort(originalDataSet.begin(), originalDataSet.end());
         // cout<<originalDataSet.size()<<endl;
 
@@ -137,27 +140,27 @@ int main(void)
         std::uniform_int_distribution<std::mt19937::result_type> dist9(0,9); // distribution in range [0, 9]
 
         //shuffle the array 
-        random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
+        random_shuffle(&indexArray[0], &indexArray[lineNumberClasses-1]);
 
         int finalNoiseCount =0;
-        int SUBSET_SIZE = lineNumber * NOISE_PERCENT;
+        int SUBSET_SIZE = lineNumberClasses * NOISE_PERCENT;
         for(int i =0; i<SUBSET_SIZE; i++)
         {
         	int x = dist9(rng);
-        	if(originalDataSet[i].y != x)
+        	if(originalDataSet[indexArray[i]].y != x)
         		finalNoiseCount++;
-        	originalDataSet[i].y = x;		
+        	originalDataSet[indexArray[i]].y = x;		
         }
 
         string featureSet = "";
         string outputClass = ""; 
         for(int i =0; i<lineNumber; i++)
-        {
-        	featureSet += to_string(originalDataSet[i].x1) + "\n";
+        	featureSet += (originalDataSet[i].x1) + "\n";
+        
+        for(int i =0; i<lineNumberClasses; i++)
         	outputClass += to_string(originalDataSet[i].y) + "\n";
-        }
 
-        	std::ofstream out(ns_ds1 + input1);
+        std::ofstream out(ns_ds1 + input1);
         out << featureSet;
         out.close();
 
@@ -168,7 +171,7 @@ int main(void)
 
         string desc = "->> " + to_string((int)(NOISE_PERCENT * 100)) + "% of the class value were changed randomly\n->> Rows were selected randomly\n->> Value was changed to a randomly picked value between [0,9]\n\nExpected noisy rows = " + to_string((int)(NOISE_PERCENT * 100)) + "%\nFinal results:\nNumber of rows: " + to_string(lineNumber) + "\nNoisy rows    : " + to_string(finalNoiseCount);
 
-        	std::ofstream out3(desc_file);
+        std::ofstream out3(desc_file);
         out3 << desc;
         out3.close();
 

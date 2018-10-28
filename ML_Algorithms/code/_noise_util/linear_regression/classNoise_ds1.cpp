@@ -71,22 +71,26 @@ struct mySorter
 int main(void) 
 { 
     int noiseSeed[] = {0, 20, 40, 60, 80};
-    for(int ii = 0; ii<25; ii++)
+    float noiseSize[] = {0.1f, .2f, .3f, .4f, .5f};
+    for(int i = 0; i<5; i++)
     {
+        for(int j = 0; j<5; j++)
+        {
+        
         string input1 = "boston.csv";
         string input2 = "boston.csv";
         string ds_clases = 
         "C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/linear_regression/ds_1/" + input1;
         string ns_ds1 = 
         "C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/linear_regression/ds_1/ns_ds_"
-        + to_string(ii+1) + "/";
+        + to_string((i*5) + (j+1)) + "/";
         string desc_file = ns_ds1 + "description.txt";
 
 
         string str = "";
         int lineNumber = 0;
-        float NOISE_SIZE = 0.1f * (ii%5 + 1);
-        int MIN_NOISE_PERCENT = noiseSeed[ii%5];
+        float NOISE_SIZE = noiseSize[j];
+        int MIN_NOISE_PERCENT = noiseSeed[i];
         int NOISE_PERCENT = MIN_NOISE_PERCENT+10;
         vector<dataPoint> noisyDataSets =  vector<dataPoint>();
         vector<dataPoint> originalDataSet =  vector<dataPoint>(); 
@@ -192,7 +196,8 @@ int main(void)
         out3.close();
 
         cout<<finalNoiseCount<<"/"<<lineNumber<<endl<<endl<<endl;
-    }
+        }
+    } 
 
    return 0; 
 } 

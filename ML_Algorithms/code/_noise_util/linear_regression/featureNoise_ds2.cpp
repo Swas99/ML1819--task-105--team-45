@@ -72,133 +72,139 @@ struct mySorter
 int main(void) 
 { 
 
-    int noiseSeed[] = {0, 10, 20, 30, 40};
-    for(int ii = 0; ii<25; ii++)
+
+    int noiseSeed[] = {0, 20, 40, 60, 80};
+    float noiseSize[] = {0.1f, .2f, .3f, .4f, .5f};
+    for(int i = 0; i<5; i++)
     {
-    	string input1 = "stockprices.csv";
-    	string input2 = "stockprices.csv";
-    	string ds_clases = 
-        "C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/linear_regression/ds_2/" + input1;
-        string ns_ds1 = 
-        "C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/linear_regression/ds_2/ns_ds_"
-        + to_string(ii+1) + "/";
-        string desc_file = ns_ds1 + "description.txt";
-
-
-    	string str = "";
-    	int lineNumber = 0;
-        float NOISE_SIZE = 0.1f * (ii%5 + 1);
-        int MIN_NOISE_PERCENT = noiseSeed[ii%5];
-        int NOISE_PERCENT = MIN_NOISE_PERCENT+5;
-    	vector<dataPoint> noisyDataSets =  vector<dataPoint>();
-    	vector<dataPoint> originalDataSet =  vector<dataPoint>(); 
-    	string fPath = ds_clases;
-    	fstream file(fPath);
-        std::getline(file, str);
-        while(std::getline(file, str))
-        { 
-        	if(str.length() == 0)
-        		continue; 
-
-            replaceAll( str, "\n", "");
-            str.erase(0, str.find_first_not_of(' '));       //prefixing spaces
-            str.erase(str.find_last_not_of(' ')+1);  
-            vector<string> _row = split(str, ',');
-            dataPoint objData;
-            // if(lineNumber<5)
-            //     cout<<str<<endl;
-            objData.date = _row[0];
-            objData.x[0] = stod(_row[1]);
-            objData.x[1] = stod(_row[2]);
-            originalDataSet.push_back(objData);
-    		lineNumber++;
-        } 
-
-
-    	//testing:
-    	// for(int i=0; i<3; i++)
-    	// 	cout<<originalDataSet[i].x[0]<<"\t"<<originalDataSet[i].y<<endl;
-    	// for(dataPoint x : originalDataSet)
-    	//  	cout<<x.x1<<"\t"<<x.y<<endl;
-    	 
-    	
-    	/*Random noise to x% of data*/
-    	//random seed
-        std::mt19937 rng;
-        rng.seed(std::random_device()());
-        std::uniform_int_distribution<std::mt19937::result_type> dist9(MIN_NOISE_PERCENT, NOISE_PERCENT); // distribution in range [0, 9]
-
-        //shuffle the array 
-        random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
-        for(int i =0; i<9; i++)
+        for(int j = 0; j<5; j++)
         {
-            if(dist9(rng) == 0)
-                random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
-        }
-    	random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
+                
+        	string input1 = "stockprices.csv";
+        	string input2 = "stockprices.csv";
+        	string ds_clases = 
+            "C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/linear_regression/ds_2/" + input1;
+            string ns_ds1 = 
+            "C:/Users/Swastik/Desktop/MastersDegree_CS/Semester_1/MachineLearning/GroupAssingment/noisyDataSets/ML_Algorithms/data_set/linear_regression/ds_2/ns_ds_"
+            + to_string((i*5) + (j+1)) + "/";
+            string desc_file = ns_ds1 + "description.txt";
 
-    	int finalNoiseCount =0;
-    	int SUBSET_SIZE = lineNumber * NOISE_SIZE;
-    	for(int i =0; i<SUBSET_SIZE && i<lineNumber; i++)
-    	{
-            int n[] = {dist9(rng), dist9(rng) };
-            if(i<20)
+
+        	string str = "";
+        	int lineNumber = 0;
+            float NOISE_SIZE = noiseSize[j];
+            int MIN_NOISE_PERCENT = noiseSeed[i];
+            int NOISE_PERCENT = MIN_NOISE_PERCENT+5;
+        	vector<dataPoint> noisyDataSets =  vector<dataPoint>();
+        	vector<dataPoint> originalDataSet =  vector<dataPoint>(); 
+        	string fPath = ds_clases;
+        	fstream file(fPath);
+            std::getline(file, str);
+            while(std::getline(file, str))
+            { 
+            	if(str.length() == 0)
+            		continue; 
+
+                replaceAll( str, "\n", "");
+                str.erase(0, str.find_first_not_of(' '));       //prefixing spaces
+                str.erase(str.find_last_not_of(' ')+1);  
+                vector<string> _row = split(str, ',');
+                dataPoint objData;
+                // if(lineNumber<5)
+                //     cout<<str<<endl;
+                objData.date = _row[0];
+                objData.x[0] = stod(_row[1]);
+                objData.x[1] = stod(_row[2]);
+                originalDataSet.push_back(objData);
+        		lineNumber++;
+            } 
+
+
+        	//testing:
+        	// for(int i=0; i<3; i++)
+        	// 	cout<<originalDataSet[i].x[0]<<"\t"<<originalDataSet[i].y<<endl;
+        	// for(dataPoint x : originalDataSet)
+        	//  	cout<<x.x1<<"\t"<<x.y<<endl;
+        	 
+        	
+        	/*Random noise to x% of data*/
+        	//random seed
+            std::mt19937 rng;
+            rng.seed(std::random_device()());
+            std::uniform_int_distribution<std::mt19937::result_type> dist9(MIN_NOISE_PERCENT, NOISE_PERCENT); // distribution in range [0, 9]
+
+            //shuffle the array 
+            random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
+            for(int i =0; i<9; i++)
             {
-                for(int j=0; j<2 && i<20; j++)
-                {
-                  cout<<originalDataSet[i].x[j]<<"\t";
-                }
-                cout<<endl;
+                if(dist9(rng) == 0)
+                    random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
             }
+        	random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
 
-            for(int j=0; j<2; j++)
-            {
+        	int finalNoiseCount =0;
+        	int SUBSET_SIZE = lineNumber * NOISE_SIZE;
+        	for(int i =0; i<SUBSET_SIZE && i<lineNumber; i++)
+        	{
+                int n[] = {dist9(rng), dist9(rng) };
                 if(i<20)
-                    cout<<n[j]<<"\t";
-                int sign = dist9(rng);
-                if(sign<5)
-                    originalDataSet[i].x[j] = (100+n[j]) * originalDataSet[i].x[j]/100.0;
-                else
-                    originalDataSet[i].x[j] = (100-n[j]) * originalDataSet[i].x[j]/100.0;
-            }
-
-            if(i<20)
-            {
-                cout<<endl;
-                for(int j=0; j<2 && i<20; j++)
                 {
-                  cout<<originalDataSet[i].x[j]<<"\t";
+                    for(int j=0; j<2 && i<20; j++)
+                    {
+                      cout<<originalDataSet[i].x[j]<<"\t";
+                    }
+                    cout<<endl;
                 }
-                cout<<endl;
-                cout<<endl;
+
+                for(int j=0; j<2; j++)
+                {
+                    if(i<20)
+                        cout<<n[j]<<"\t";
+                    int sign = dist9(rng);
+                    if(sign<5)
+                        originalDataSet[i].x[j] = (100+n[j]) * originalDataSet[i].x[j]/100.0;
+                    else
+                        originalDataSet[i].x[j] = (100-n[j]) * originalDataSet[i].x[j]/100.0;
+                }
+
+                if(i<20)
+                {
+                    cout<<endl;
+                    for(int j=0; j<2 && i<20; j++)
+                    {
+                      cout<<originalDataSet[i].x[j]<<"\t";
+                    }
+                    cout<<endl;
+                    cout<<endl;
+                }
+
+                finalNoiseCount++;
+        	}
+            random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
+        	string data = ""; 
+            data += data += "#Date,amazon,google\n";
+            for(int i =0; i<lineNumber; i++)
+            {
+                data += originalDataSet[i].date + ",";
+                data += to_string(originalDataSet[i].x[0]) + ",";
+                data += to_string(originalDataSet[i].x[1]) + "\n";
             }
+            // cout<<data<<endl;
+           	std::ofstream out(ns_ds1 + input1);
+            out << data;
+        	out.close();
 
-            finalNoiseCount++;
-    	}
-        random_shuffle(&originalDataSet[0], &originalDataSet[lineNumber-1]);
-    	string data = ""; 
-        data += data += "#Date,amazon,google\n";
-        for(int i =0; i<lineNumber; i++)
-        {
-            data += originalDataSet[i].date + ",";
-            data += to_string(originalDataSet[i].x[0]) + ",";
-            data += to_string(originalDataSet[i].x[1]) + "\n";
+
+        	string desc = "->> [" + to_string((int)(MIN_NOISE_PERCENT)) + "," + to_string((int)(NOISE_PERCENT)) + "]% of noise added randomly\n";
+            desc += "->> " + to_string((int)(NOISE_SIZE * 100)) + " %  of " + " feature values have noise now\n";
+            desc += "Final results:\nNumber of rows: " + to_string(lineNumber) + "\nNoisy rows    : " + to_string(finalNoiseCount);
+
+           	std::ofstream out3(desc_file);
+            out3 << desc;
+        	out3.close();
+
+        	cout<<finalNoiseCount<<"/"<<lineNumber<<endl<<endl<<endl;
         }
-        // cout<<data<<endl;
-       	std::ofstream out(ns_ds1 + input1);
-        out << data;
-    	out.close();
-
-
-    	string desc = "->> [" + to_string((int)(MIN_NOISE_PERCENT)) + "," + to_string((int)(NOISE_PERCENT)) + "]% of noise added randomly\n";
-        desc += "->> " + to_string((int)(NOISE_SIZE * 100)) + " %  of " + " feature values have noise now\n";
-        desc += "Final results:\nNumber of rows: " + to_string(lineNumber) + "\nNoisy rows    : " + to_string(finalNoiseCount);
-
-       	std::ofstream out3(desc_file);
-        out3 << desc;
-    	out3.close();
-
-    	cout<<finalNoiseCount<<"/"<<lineNumber<<endl<<endl<<endl;
     }
 
    return 0; 
