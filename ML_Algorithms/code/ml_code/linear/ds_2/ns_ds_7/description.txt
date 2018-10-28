@@ -1,0 +1,5 @@
+->> [10,15]% of noise added randomly
+->> 20 %  of  feature values have noise now
+Final results:
+Number of rows: 248
+Noisy rows    : 49
