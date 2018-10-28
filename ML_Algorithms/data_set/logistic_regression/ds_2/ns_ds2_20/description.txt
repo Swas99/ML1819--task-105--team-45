@@ -1,5 +1,0 @@
-->> 20% of the class value were changed randomly
-->> 20 %  of  values flipped
-Final results:
-Number of rows: 569
-Noisy rows    : 113

@@ -1,5 +1,0 @@
-->> 18% of the class value were changed randomly
-->> 18 %  of  'B' -> 'M'
-Final results:
-Number of rows: 569
-Noisy rows    : 102
