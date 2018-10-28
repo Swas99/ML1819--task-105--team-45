@@ -26,10 +26,10 @@
    Algo name: Logistic Regression
    Dataset name: wisconsin
    Results: Please find results for experiments on all datasets in the link below.
-   Results link:
+   Results link: https://drive.google.com/open?id=1ECHsdvp17ljCzJRm4ueWbS7DH1ceDrZo
    
    Algo name: Logistic Regression
-   Dataset name: wisconsin
+   Dataset name: digit_image_class
    Results: Please find results for experiments on all datasets in the link below.
    Results link:
    
