@@ -14,12 +14,12 @@
 
 3. Results:<br>
    Algo name: Linear Regression
-   Dataset name: wisconsin
+   Dataset name: stockprices.csv //stock prices for amazon vs google
    Results: Please find results for experiments on all datasets in the link below.
    Results link:
    
    Algo name: Linear Regression
-   Dataset name: wisconsin
+   Dataset name: boston.csv //housing
    Results: Please find results for experiments on all datasets in the link below.
    Results link:
    
