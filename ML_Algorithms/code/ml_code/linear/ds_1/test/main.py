@@ -56,17 +56,17 @@ def splitData(X,y):
 
 def main():
   # load the data
-  data=np.loadtxt('stockprices.csv', dtype='str',delimiter=',',usecols=(1,2))
+  data=np.loadtxt('boston.csv', dtype='str',delimiter=',',usecols=(0,13))
   X=data[:,0].astype(float)
-  y=data[:,1].astype(float)
+  y=data[:,13].astype(float)
   
   # plot the data so we can see how it looks 
   # (output is in file graph.png)
   fig, ax = plt.subplots(figsize=(12, 8))
   ax.scatter(X, y, label='Data')
-  ax.set_xlabel('Amazon')
-  ax.set_ylabel('Google')
-  ax.set_title('Google stock price vs Amazon')
+  ax.set_xlabel('CRIM')
+  ax.set_ylabel('Price')
+  ax.set_title('Price variation according to CRIM')
   fig.savefig('graph.png')
 
   # split the data into training and test parts
@@ -81,9 +81,7 @@ def main():
   (Xt,Xscale) = normaliseData(Xtrain)
   (yt,yscale) = normaliseData(ytrain)
 
-  # calculate the prediction
-  print('testing the prediction function ...')
-  theta=(1,2)
+  theta=(0,13)
   print('when x=[1,1] and theta is [1,2]) cost = ',predict(np.ones(n),theta))
   print('approx expected prediction is 3')
   print('when x=[[1,1],[5,5]] and theta is [1,2]) cost = ',predict(np.array([[1,1],[5,5]]),theta))  
@@ -116,8 +114,8 @@ def main():
   fig, ax = plt.subplots(figsize=(12, 8))
   ax.scatter(Xtest, ytest, color='b', label='Test Data')
   ax.plot(Xpred[:,1], ypred, 'r', label='Prediction')
-  ax.set_xlabel('Amazon')
-  ax.set_ylabel('Google')
+  ax.set_xlabel('CRIM')
+  ax.set_ylabel('Price')
   ax.legend(loc=2)
   fig.savefig('pred.png')
   

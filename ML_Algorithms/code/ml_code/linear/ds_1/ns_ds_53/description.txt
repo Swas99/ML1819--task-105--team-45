@@ -1,0 +1,10 @@
+->> [40,50]% of noise added randomly
+->> 0 %  of  feature values have noise now
+
+**IGNORE ABOVE LINES
+MULTI COLINEAR NOISE!
+LAST_FEATURE_COL <--> 3xCOL5 **
+
+Final results:
+Number of rows: 506
+Noisy rows    : 0

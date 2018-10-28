@@ -1,0 +1,5 @@
+->> [60,70]% of noise added randomly
+->> 40 %  of  data-row(CLASS noise) have noise now
+Final results:
+Number of rows: 506
+Noisy rows    : 202
