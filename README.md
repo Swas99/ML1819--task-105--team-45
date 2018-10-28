@@ -17,27 +17,27 @@
    Dataset name: stockprices.csv //stock prices for amazon vs google
    Results: Please find results for experiments on all datasets in the link below.
    Results link:
-   
+   <br>
    Algo name: Linear Regression
    Dataset name: boston.csv //housing
    Results: Please find results for experiments on all datasets in the link below.
    Results link:
-   
+   <br>
    Algo name: Logistic Regression
    Dataset name: wisconsin
    Results: Please find results for experiments on all datasets in the link below.
    Results link: https://drive.google.com/open?id=1ECHsdvp17ljCzJRm4ueWbS7DH1ceDrZo
-   
+   <br>
    Algo name: Logistic Regression
    Dataset name: digit_image_class
    Results: Please find results for experiments on all datasets in the link below.
    Results link:
-   
+   <br>
    Algo name: k-means
    Dataset name: data.txt // data points
    Results: Please find results for experiments on all datasets in the link below.
    Results link:
-   
+   <br>
    Algo name: k-means
    Dataset name: image.txt //pixels
    Results: Please find results for experiments on all datasets in the link below.
