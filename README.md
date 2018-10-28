@@ -34,12 +34,12 @@
    Results link:
    
    Algo name: k-means
-   Dataset name: wisconsin
+   Dataset name: data.txt // data points
    Results: Please find results for experiments on all datasets in the link below.
    Results link:
    
    Algo name: k-means
-   Dataset name: wisconsin
+   Dataset name: image.txt //pixels
    Results: Please find results for experiments on all datasets in the link below.
    Results link:
 
