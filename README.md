@@ -16,7 +16,7 @@
    Algo name: Linear Regression
    Dataset name: stockprices.csv //stock prices for amazon vs google
    Results: Please find results for experiments on all datasets in the link below.
-   Results link:
+   Results link: https://docs.google.com/document/d/1LS3yvuo4Wujt_Me9cTIzj08S6gX6KVUpSwXJp2QxTdo/edit
    <br>
    Algo name: Linear Regression
    Dataset name: boston.csv //housing
