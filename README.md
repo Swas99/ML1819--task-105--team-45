@@ -31,7 +31,7 @@
    Algo name: Logistic Regression
    Dataset name: digit_image_class
    Results: Please find results for experiments on all datasets in the link below.
-   Results link:
+   Results link: https://drive.google.com/drive/folders/18GTcHdTgFwg-T3s1jJnSd8ebDzTTjdt1?usp=sharing
    <br>
    Algo name: k-means
    Dataset name: data.txt // data points
