@@ -21,7 +21,7 @@
    Algo name: Linear Regression
    Dataset name: boston.csv //housing
    Results: Please find results for experiments on all datasets in the link below.
-   Results link:
+   Results link: https://drive.google.com/drive/folders/1yKfpVnOQVfdFnIaOi1zpF0xemPZ9WUWq?usp=sharing
    <br>
    Algo name: Logistic Regression
    Dataset name: wisconsin
