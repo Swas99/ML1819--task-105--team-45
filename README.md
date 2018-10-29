@@ -36,7 +36,7 @@
    Algo name: k-means
    Dataset name: data.txt // data points
    Results: Please find results for experiments on all datasets in the link below.
-   Results link:
+   Results link: https://docs.google.com/document/d/103JY0_fAceLiFz0E9H9JAnajw3chU6ThtSJaJ5o5kGo/edit?ts=5bd2713f
    <br>
    Algo name: k-means
    Dataset name: image.txt //pixels
