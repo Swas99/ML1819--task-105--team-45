@@ -6,7 +6,7 @@
     - Linear regression
     - Logistic regression
     - SVM
-    - Clustering
+    - k-means Clustering
 
 2. Data-set and description:<br>
    https://drive.google.com/drive/u/1/folders/18rDjM-WIL729MrX7LBqjkkNoTPKsLKQF?ogsrc=32 <br>
