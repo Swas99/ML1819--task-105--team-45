@@ -45,10 +45,13 @@
    Dataset name: image.txt //pixels<br>
    Results: Please find results for experiments on all datasets in the link below.<br>
    Results link: https://docs.google.com/document/d/1arG47QsqOwNg_LBiV_SB4IeZwyjU4o6i0Scx-hvgjsI/edit<br>
+   <br><br>
+   
+   <b>Comparison of ML Algorithms</b>
+   Algo name: Feed Forward Neural Network vs SVM vs Logistic Regression<br>
+   Dataset name: scikit-learn's breast_cancer dataset //pixels<br>
+   Results: Please find results for experiments on all datasets in the link below.<br>
+   Code + Results on google colab: https://colab.research.google.com/drive/1uR9pOhvv1z6Ym_HZjOFRcrWvkU-kbBVX
 
 
 ________________________________________________________________________________________________________________________________
-
-0. TAsk tracker:<br>
-https://docs.google.com/spreadsheets/d/1W_MhftameBd9GcWW4ijHH4FxmyGZbB80luRRTA8CBEw/edit?usp=sharing <br>
-Flow for 'Status': NEW -> IN PROGRESS -> TESTING(assign item to someone else at this stage) -> [Code review -> MERGE] -> COMPLETED
